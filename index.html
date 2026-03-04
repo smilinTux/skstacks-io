@@ -3,300 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKStacks - Pengu Army Core Platform</title>
-    <meta name="description" content="AI-first infrastructure with data sovereignty and zero trust. The technical backbone of the Pengu Empire!">
-    <!-- Open Graph -->
-    <meta property="og:title" content="SKStacks - Pengu Army Core Platform">
-    <meta property="og:description" content="AI-first infrastructure with data sovereignty and zero trust. The technical backbone of the Pengu Empire!">
+    <title>SKStacks -- Sovereign Infrastructure. Any Platform.</title>
+    <meta name="description" content="Deploy sovereign AI infrastructure anywhere. Docker Swarm, Kubernetes, RKE2. Three secret backends, OpenTofu IaC.">
+    <link rel="canonical" href="https://skstacks.io">
+    <meta property="og:title" content="SKStacks -- Sovereign Infrastructure. Any Platform.">
+    <meta property="og:description" content="Deploy sovereign AI infrastructure anywhere. Docker Swarm, Kubernetes, RKE2. Three secret backends, OpenTofu IaC.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://skstacks.io">
     <meta property="og:site_name" content="SKWorld">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SKStacks - Pengu Army Core Platform">
-    <meta name="twitter:description" content="AI-first infrastructure with data sovereignty and zero trust. The technical backbone of the Pengu Empire!">
-    <!-- Favicon & Canonical -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
-    <link rel="canonical" href="https://skstacks.io">
+    <meta name="twitter:title" content="SKStacks -- Sovereign Infrastructure. Any Platform.">
+    <meta name="twitter:description" content="Deploy sovereign AI infrastructure anywhere. Docker Swarm, Kubernetes, RKE2. Three secret backends, OpenTofu IaC.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%96%A5</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-            color: white;
-            line-height: 1.6;
-        }
-        
-        .header {
-            padding: 2rem;
-            text-align: center;
-            background: rgba(0,0,0,0.2);
-        }
-        
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: #3498DB;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .tagline {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .features-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #09090b;
+        color: #fafafa;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ── Nav ─────────────────────────────────── */
+      .nav {
+        border-bottom: 1px solid #27272a;
+        background: #09090b;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav-inner {
+        max-width: 72rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        padding: 0 1rem;
+      }
+      .nav-logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fafafa;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-link {
+        font-size: 0.875rem;
+        color: #a1a1aa;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .nav-link:hover {
+        color: #fafafa;
+      }
+
+      /* ── Hero ────────────────────────────────── */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5rem 1rem 3rem;
+      }
+      .hero-icon {
+        color: #34d399;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+      .hero .tagline {
+        font-size: 1.25rem;
+        color: #a1a1aa;
+        max-width: 40rem;
+        margin-bottom: 2rem;
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* ── Buttons ─────────────────────────────── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: #059669;
+        color: #fafafa;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background 0.15s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: #047857;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        color: #fafafa;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        border: 1px solid #3f3f46;
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+        cursor: pointer;
+      }
+      .btn-outline:hover {
+        border-color: #a1a1aa;
+      }
+
+      /* ── Description ─────────────────────────── */
+      .desc-section {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+        text-align: center;
+      }
+      .desc-section p {
+        font-size: 1.125rem;
+        color: #a1a1aa;
+        line-height: 1.7;
+      }
+
+      /* ── Features ────────────────────────────── */
+      .features-section {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+      .features-section h2 {
+        text-align: center;
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 2.5rem;
+        color: #fafafa;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .feature-card {
+        border: 1px solid #27272a;
+        background: rgba(24,24,27,0.5);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        transition: border-color 0.2s, transform 0.2s;
+        position: relative;
+      }
+      .feature-card:hover {
+        border-color: #34d399;
+        transform: translateY(-2px);
+      }
+      .feature-dot {
+        width: 8px;
+        height: 8px;
+        background: #34d399;
+        border-radius: 50%;
+        margin-bottom: 0.75rem;
+      }
+      .feature-card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #34d399;
+      }
+
+      /* ── Install ─────────────────────────────── */
+      .install-section {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+        text-align: center;
+      }
+      .install-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #fafafa;
+      }
+      .code-block {
+        background: #18181b;
+        border: 1px solid #27272a;
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+        font-size: 0.95rem;
+        color: #34d399;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+      .code-prompt {
+        color: #a1a1aa;
+        user-select: none;
+      }
+      .copy-btn {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #27272a;
+        border: 1px solid #3f3f46;
+        color: #a1a1aa;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: color 0.15s, border-color 0.15s;
+        font-family: 'Geist', system-ui, sans-serif;
+      }
+      .copy-btn:hover {
+        color: #fafafa;
+        border-color: #a1a1aa;
+      }
+
+      /* ── DID Banner ──────────────────────────── */
+      .did-banner {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+      }
+      .did-banner-inner {
+        border: 1px solid rgba(5,150,105,0.3);
+        background: rgba(6,78,59,0.15);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .did-banner-inner .did-icon {
+        color: #34d399;
+        flex-shrink: 0;
+      }
+      .did-banner-inner .did-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+      .did-banner-inner h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #34d399;
+        margin-bottom: 0.25rem;
+      }
+      .did-banner-inner p {
+        font-size: 0.875rem;
+        color: #a1a1aa;
+      }
+      .did-banner-inner .btn-primary {
+        margin-left: auto;
+        white-space: nowrap;
+      }
+
+      /* ── Architect Banner ────────────────────── */
+      .architect-banner {
+        border-top: 1px solid #27272a;
+        text-align: center;
+        padding: 1.5rem 1rem;
+      }
+      .architect-banner p {
+        font-size: 0.95rem;
+        color: #a1a1aa;
+      }
+      .architect-banner a {
+        color: #34d399;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .architect-banner a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── Footer ──────────────────────────────── */
+      .footer {
+        border-top: 1px solid #27272a;
+        background: #09090b;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 0.875rem;
+        color: #71717a;
+      }
+      .footer .motto {
+        margin-top: 0.5rem;
+        color: #52525b;
+      }
+
+      /* ── Mobile ──────────────────────────────── */
+      @media (max-width: 768px) {
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+          grid-template-columns: 1fr;
         }
-        
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s ease;
+        .nav-links {
+          gap: 1rem;
         }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.1);
+        .did-banner-inner {
+          flex-direction: column;
+          text-align: center;
         }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .did-banner-inner .btn-primary {
+          margin-left: 0;
         }
-        
-        .feature-card h3 {
-            color: #3498DB;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .hero .cta-row {
+          flex-direction: column;
+          width: 100%;
+          padding: 0 1rem;
         }
-        
-        .tech-stack {
-            background: rgba(0,0,0,0.3);
-            padding: 3rem 2rem;
-            margin: 3rem 0;
+        .hero .cta-row a {
+          width: 100%;
+          justify-content: center;
         }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-            max-width: 800px;
-            margin: 2rem auto;
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
-        
-        .tech-item {
-            background: rgba(255,255,255,0.05);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .tech-item h4 {
-            color: #87CEEB;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cta-section {
-            background: linear-gradient(45deg, #3498DB, #2980B9);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #2C3E50;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 0.5rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-        }
-        
-        footer {
-            background: rgba(0,0,0,0.4);
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .breadcrumb {
-            background: rgba(0,0,0,0.2);
-            padding: 1rem 2rem;
-            font-size: 0.9rem;
-        }
-        
-        .breadcrumb a {
-            color: #87CEEB;
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            color: #FFD700;
-        }
+      }
     </style>
 </head>
 <body>
-    <div class="breadcrumb">
-        <a href="https://skworld.io">🐧 SKWorld</a> → 
-        <span>⚡ SKStacks Core Platform</span>
-    </div>
-
-    <header class="header">
-        <div class="logo">⚡</div>
-        <h1 class="title">SKStacks</h1>
-        <p class="tagline">AI-First Infrastructure for the Pengu Empire</p>
-        <p>Data Sovereign • Zero Trust • Quantum Secure</p>
-    </header>
-
-    <section class="features-section">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #FFD700; margin-bottom: 3rem;">
-            🏗️ Core Platform Features
-        </h2>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>AI Agent Army</h3>
-                <p>Deploy autonomous AI agents that work 24/7 for your business. From customer service to content creation - your pengu workforce never sleeps!</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Zero Trust Security</h3>
-                <p>Enterprise-grade security without enterprise headaches. Your data stays yours, your agents stay secure, your business stays protected.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h3>Sovereign Infrastructure</h3>
-                <p>Own your entire stack - from domains to databases. No vendor lock-in, no corporate dependency, just pure creator freedom.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">💎</div>
-                <h3>Quantum Security</h3>
-                <p>Future-proof encryption and privacy designed for the post-quantum world. Your empire stays secure even when computers get really scary.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Data Sovereignty</h3>
-                <p>You own your data, your insights, your intelligence. No algorithms mining your creativity for corporate profit.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>Rapid Deployment</h3>
-                <p>From idea to empire in days, not months. Our pengu-tested infrastructure means you start building value immediately.</p>
-            </div>
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="https://skstacks.io" class="nav-logo">SK<span style="color:#34d399">Stacks</span></a>
+        <div class="nav-links">
+            <a href="https://skworld.io" class="nav-link">SKWorld</a>
+            <a href="https://skarchitect.io" class="nav-link">SKArchitect</a>
+            <a href="https://github.com/smilinTux/skstacks" class="nav-link" target="_blank" rel="noopener">GitHub</a>
         </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></div>
+      <h1>SK<span style="color:#34d399">Stacks</span></h1>
+      <p class="tagline">Sovereign Infrastructure. Any Platform.</p>
+      <div class="cta-row">
+          <a href="#install" class="btn-primary">Get Started</a>
+          <a href="https://github.com/smilinTux/skstacks" class="btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
     </section>
 
-    <section class="tech-stack">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #FFD700; margin-bottom: 2rem;">
-            🔧 Tech Stack That Powers Pengu Success
-        </h2>
-        
-        <div class="tech-grid">
-            <div class="tech-item">
-                <h4>🐋 Docker Swarm</h4>
-                <p>Container orchestration</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>🧠 OpenClaw</h4>
-                <p>AI agent framework</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>🔍 Qdrant</h4>
-                <p>Vector database</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>📈 FalkorDB</h4>
-                <p>Knowledge graphs</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>☁️ Cloudflare</h4>
-                <p>Global CDN & DNS</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>💰 Crypto-Native</h4>
-                <p>XRP & Verus payments</p>
-            </div>
-        </div>
+    <!-- Description -->
+    <section class="desc-section">
+      <p>Deploy sovereign AI infrastructure anywhere. Docker Swarm, Kubernetes, RKE2. Three secret backends, OpenTofu IaC.</p>
     </section>
 
-    <section class="cta-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Ready to Build Your Pengu Empire?</h2>
-        <p style="font-size: 1.3rem; margin-bottom: 3rem;">
-            Join thousands of creators who chose sovereignty over corporate chains!
-        </p>
-        
-        <a href="mailto:luminaSK@smilintux.org?subject=I%20Want%20SKStacks%20Infrastructure!" class="cta-button">
-            🚀 Deploy My Infrastructure
-        </a>
-        
-        <a href="https://skworld.io#join" class="cta-button">
-            🐧 Join the Family First
-        </a>
+    <!-- Features -->
+    <section class="features-section" id="features">
+      <h2>Features</h2>
+      <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Docker Swarm &amp; K8s</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>RKE2 CIS-Hardened</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Three Secret Backends</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>OpenTofu IaC</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>ArgoCD GitOps</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Kustomize Overlays</h3>
+            </div>
+      </div>
     </section>
 
-    <footer>
-        <p style="margin-bottom: 1rem;">
-            <strong>Part of the SKWorld Ecosystem</strong><br>
-            Built by pengus, for pengus, with penguin-level attention to detail.
-        </p>
-        
-        <div style="margin: 1rem 0;">
-            <a href="https://skcapstone.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🏛️ SKCapstone</a>
-            <a href="https://capauth.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🔐 CapAuth</a>
-            <a href="https://skmemory.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🧠 SKMemory</a>
-            <a href="https://sksecurity.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🛡️ SKSecurity</a>
-            <a href="https://skforge.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🔨 SKForge</a>
-            <a href="https://skhelp.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🤖 SKHelp</a>
-            <a href="https://skworld.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🌍 SKWorld</a>
-            <a href="https://github.com/smilinTux" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">📦 GitHub</a>
+      <section class="install-section">
+        <h2>Get Started</h2>
+        <div class="code-block">
+          <span class="code-prompt">$</span> pip install skstacks
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('pip install skstacks');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
         </div>
-        
-        <p style="opacity: 0.7; margin-top: 2rem;">
-            © 2026 smilinTux — The Penguin Kingdom • Stay Curious AND Keep Smilin' ✨
-        </p>
+      </section>
+
+      <section class="architect-banner">
+        <p>Shape the future &rarr; <a href="https://skarchitect.io">Submit proposals and vote at skarchitect.io</a></p>
+      </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Part of the <a href="https://skworld.io" style="color:#34d399;text-decoration:none">SKWorld</a> sovereign ecosystem</p>
+      <p class="motto">staycuriousANDkeepsmilin</p>
     </footer>
 </body>
 </html>
