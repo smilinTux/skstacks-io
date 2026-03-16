@@ -41,3 +41,5 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+Sitemap: https://skstacks.io/sitemap.xml
